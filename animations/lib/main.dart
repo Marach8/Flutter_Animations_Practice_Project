@@ -1,3 +1,4 @@
+import 'package:animations/examples/example1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.blue),
+        useMaterial3: true
+      ),
+      home: const Example1()
+    );
   }
 }
