@@ -1,5 +1,6 @@
 import 'package:animations/examples/example1.dart';
 import 'package:animations/examples/example2/home.dart';
+import 'package:animations/examples/example3/example3.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(backgroundColor: Colors.blue),
         useMaterial3: true
       ),
-      home: const Example2()
+      home: const Example3()
     );
   }
 }
