@@ -16,19 +16,33 @@ class _Example5State extends State<Example5> {
     return Scaffold(
       appBar: AppBar(title: const Text('')),
       body: Center(
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 500),
-          curve: isZoomed ? Curves.easeOut : Curves.easeIn,
-          width: isZoomed ? MediaQuery.of(context).size.width : 100,
+        child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/FB_IMG_1691828515571.png', fit: BoxFit.cover),
-              const Gap(10),
-              TextButton(
-                onPressed: () => setState(() => isZoomed = !isZoomed),
-                child: Text(isZoomed ? 'Zoom In' : 'Zoom Out')
-              )
+              GestureDetector(
+                onTap: () => setState(() => isZoomed = !isZoomed),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 500),
+                  curve: isZoomed ? Curves.easeOut : Curves.easeIn,
+                  width: isZoomed ? MediaQuery.of(context).size.width : 100,
+                  child: Image.asset('assets/FB_IMG_1691828515571.png', fit: BoxFit.cover),
+                      // TextButton(
+                      //   onPressed: () => setState(() => isZoomed = !isZoomed),
+                      //   child: Text(isZoomed ? 'Zoom In' : 'Zoom Out')
+                      // )
+                    
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () => setState(() => isZoomed = !isZoomed),
+                child: AnimatedContainer(                  
+                  duration: const Duration(milliseconds: 500),
+                  curve: !isZoomed ? Curves.easeOut : Curves.easeIn,
+                  width: !isZoomed ? MediaQuery.of(context).size.width : 100,
+                  child: Image.asset('assets/IMG-20230523-WA0191.jpg', fit: BoxFit.cover),
+                ),
+              ),
             ],
           ),
         ),
