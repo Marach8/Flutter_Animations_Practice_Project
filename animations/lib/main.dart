@@ -2,6 +2,7 @@ import 'package:animations/examples/example1.dart';
 import 'package:animations/examples/example2/home.dart';
 import 'package:animations/examples/example3.dart';
 import 'package:animations/examples/example4/home.dart';
+import 'package:animations/examples/example5.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black,
         useMaterial3: true
       ),
-      home: const Example4()
+      home: const Example5()
     );
   }
 }

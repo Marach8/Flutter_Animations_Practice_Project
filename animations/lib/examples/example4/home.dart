@@ -8,7 +8,6 @@ class Example4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text('People').changeText(Colors.white70, 20),
         centerTitle: true,
