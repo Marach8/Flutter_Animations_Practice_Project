@@ -26,11 +26,6 @@ class _Example5State extends State<Example5> {
                   curve: isZoomed ? Curves.easeOut : Curves.easeIn,
                   width: isZoomed ? MediaQuery.of(context).size.width : 100,
                   child: Image.asset('assets/FB_IMG_1691828515571.png', fit: BoxFit.cover),
-                      // TextButton(
-                      //   onPressed: () => setState(() => isZoomed = !isZoomed),
-                      //   child: Text(isZoomed ? 'Zoom In' : 'Zoom Out')
-                      // )
-                    
                 ),
               ),
 
