@@ -27,10 +27,10 @@ class _Example8State extends State<DrawerAndScreen> with TickerProviderStateMixi
     );
 
     childAnimation = Tween<double>(begin: 0, end: -pi/2).animate(childController);
-    drawerAnimation = Tween<double>(begin: pi/2.7, end: 0).animate(drawerController);
+    drawerAnimation = Tween<double>(begin: pi/2, end: 0).animate(drawerController);
   }
 
-  @override 
+  @override
   void dispose(){
     childController.dispose();
     drawerController.dispose();
@@ -72,7 +72,7 @@ class _Example8State extends State<DrawerAndScreen> with TickerProviderStateMixi
               alignment: Alignment.centerRight,
               transform: Matrix4.identity()
                 ..setEntry(3, 2, 0.001)
-                ..translate(-width + drawerAnimation.value * 0.8)
+                //..translate(-width)
                 ..rotateY(drawerAnimation.value),
               child: widget.drawer
             )
