@@ -1,3 +1,4 @@
+import 'package:animations/examples/example8/home.dart';
 import 'package:animations/examples/example1.dart';
 import 'package:animations/examples/example2/home.dart';
 import 'package:animations/examples/example3.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black,
         useMaterial3: true
       ),
-      home: const Example7()
+      home: const Example8()
     );
   }
 }

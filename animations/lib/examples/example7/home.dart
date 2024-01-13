@@ -33,7 +33,7 @@ class _Example7State extends State<Example7> with TickerProviderStateMixin{
     )..repeat(reverse: true);
 
     sidesAnimation = IntTween(begin: 3, end: 10).animate(sidesController);
-    //you can use only a Tween if your radiusAnimation was declared to be a double
+    //you can use a Tween if your radiusAnimation was declared to be a double
     //for the CurvedAnimation, you can use a .chain(CurvedTween()) before .animate()
     radiusAnimation = IntTween(begin: 50, end: 400).chain(
       CurveTween(curve: Curves.bounceOut)
