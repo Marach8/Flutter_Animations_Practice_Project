@@ -9,10 +9,10 @@ class Example8 extends StatelessWidget {
     return DrawerAndScreen(
       drawer: Material(
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
+          width: MediaQuery.of(context).size.width,
           color: Colors.blueGrey.shade100,
           child: ListView.builder(
-            padding: const EdgeInsets.only(left: 70, top: 100),
+            padding: const EdgeInsets.only(left: 100, top: 100),
             itemCount: 20,
             itemBuilder: (_, index) => ListTile(
               title: Text('item $index')

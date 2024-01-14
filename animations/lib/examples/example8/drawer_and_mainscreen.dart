@@ -27,7 +27,7 @@ class _Example8State extends State<DrawerAndScreen> with TickerProviderStateMixi
     );
 
     childAnimation = Tween<double>(begin: 0, end: -pi/2).animate(childController);
-    drawerAnimation = Tween<double>(begin: pi/2, end: 0).animate(drawerController);
+    drawerAnimation = Tween<double>(begin: pi/2.7, end: 0).animate(drawerController);
   }
 
   @override
@@ -46,7 +46,7 @@ class _Example8State extends State<DrawerAndScreen> with TickerProviderStateMixi
         childController.value += details.delta.dx / maxDrag;
         drawerController.value += details.delta.dx / maxDrag;
       },
-      onHorizontalDragEnd: (details){
+      onHorizontalDragEnd: (_){
         if(childController.value < 0.5){
           childController.reverse();
           drawerController.reverse();
@@ -59,12 +59,12 @@ class _Example8State extends State<DrawerAndScreen> with TickerProviderStateMixi
         animation: Listenable.merge([childController, drawerController]),
         builder: (_, __) => Stack(
           children: [
-            Container(color: Colors.black,),
+            Container(color: Colors.purpleAccent),
             Transform(
               alignment: Alignment.centerLeft,
               transform: Matrix4.identity()
                 ..setEntry(3, 2, 0.001)
-                ..translate(childAnimation.value * maxDrag)
+                ..translate(childController.value * maxDrag)
                 ..rotateY(childAnimation.value),
               child: widget.child
             ),
@@ -72,7 +72,7 @@ class _Example8State extends State<DrawerAndScreen> with TickerProviderStateMixi
               alignment: Alignment.centerRight,
               transform: Matrix4.identity()
                 ..setEntry(3, 2, 0.001)
-                //..translate(-width)
+                ..translate(-width + (drawerController.value * maxDrag))
                 ..rotateY(drawerAnimation.value),
               child: widget.drawer
             )
