@@ -53,7 +53,7 @@ class Example4 extends StatelessWidget {
 
 
 
-extension ChangeText on Text{
+extension AlterText on Text{
   Text changeText(Color color, double size) 
     => Text(data ?? '', style: TextStyle(color: color, fontSize: size));
 }

@@ -26,5 +26,5 @@ class CircleClipper extends CustomClipper<Path>{
 }
 
 
-//This function generates a random color
+//This function dynamically generates a random color
 Color getRandomColor() => Color(0xFF000000 + Random().nextInt(0x00FFFFFF));

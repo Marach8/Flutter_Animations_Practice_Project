@@ -22,7 +22,10 @@ class Example8 extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Child'), centerTitle: true, foregroundColor: Colors.white60,
+          title: const Text('Child'), 
+          centerTitle: true, 
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.blueGrey.shade500,
         ),
         body: Container(
           color: Colors.blueGrey.shade900

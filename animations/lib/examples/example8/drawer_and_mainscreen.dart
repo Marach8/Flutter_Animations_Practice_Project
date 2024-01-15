@@ -59,7 +59,7 @@ class _Example8State extends State<DrawerAndScreen> with TickerProviderStateMixi
         animation: Listenable.merge([childController, drawerController]),
         builder: (_, __) => Stack(
           children: [
-            Container(color: Colors.purpleAccent),
+            Container(color: Colors.blueAccent),
             Transform(
               alignment: Alignment.centerLeft,
               transform: Matrix4.identity()

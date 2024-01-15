@@ -51,7 +51,7 @@ class _Example2State extends State<Example2> with TickerProviderStateMixin{
     flipAnimationController.addStatusListener((status) {
       if(status == AnimationStatus.completed){
         antiClockwiseAnimation = Tween<double>(
-          begin: antiClockwiseAnimation.value, end: antiClockwiseAnimation.value - pi/2
+          begin: antiClockwiseAnimation.value, end: antiClockwiseAnimation.value + pi/2
         ).animate(
           CurvedAnimation(parent: antiClockwiseController, curve: Curves.bounceOut)
         );
@@ -70,9 +70,8 @@ class _Example2State extends State<Example2> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-    //we are trying to reset the animation controller any time the build function gets called
-    //especially by a hot reload
-    antiClockwiseController..reset()..forward.delayed(1);
+    //This is the initial start of the animation with any of the controllers
+    flipAnimationController..reset()..forward.delayed(1);
 
     return Scaffold(
       backgroundColor: Colors.black,

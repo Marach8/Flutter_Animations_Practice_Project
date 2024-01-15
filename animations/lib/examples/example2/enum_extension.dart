@@ -8,6 +8,7 @@ extension ToPath on CircleSide{
     final Path path = Path();
     final bool clockwise;
 
+    //Note: Each container in the row has its own axis starting from its topleft
     switch(this){
       case CircleSide.left:
         path.moveTo(size.width, 0);

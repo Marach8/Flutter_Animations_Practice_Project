@@ -8,9 +8,10 @@ class Example1 extends StatefulWidget {
   State<Example1> createState() => _Example1State();
 }
 
-class _Example1State extends State<Example1> with SingleTickerProviderStateMixin{
-  late final AnimationController controller;
-  late final Animation<double> animation;
+class _Example1State extends State<Example1> with TickerProviderStateMixin{
+  late AnimationController controller, sliderController;
+  late Animation<double> animation;
+  late Animation<Offset> sliderAnimation;
 
   @override 
   void initState(){
@@ -19,8 +20,25 @@ class _Example1State extends State<Example1> with SingleTickerProviderStateMixin
       vsync: this,
       duration: const Duration(seconds: 2)
     )..repeat();
+
+    sliderController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 30)
+    )..repeat();
+
     animation = Tween<double>(begin: 0.0, end: 2 * pi).animate(controller);
+
+    sliderAnimation = Tween<Offset>(
+      begin: const Offset(0, 0), end: const Offset(2, 0)
+    ).animate(sliderController);
+
+    sliderAnimation.addStatusListener((status) {
+      if(status == AnimationStatus.completed){
+        sliderController..reset()..forward();
+      }
+    });
   }
+
 
   @override 
   void dispose(){
@@ -32,6 +50,15 @@ class _Example1State extends State<Example1> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: SlideTransition(
+          position: sliderAnimation,
+          child: const Text('How are you doing today'),
+        ),
+        //centerTitle: true,
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+      ),
       body: Center(
         child: AnimatedBuilder(
           animation: controller,
@@ -56,7 +83,7 @@ class _Example1State extends State<Example1> with SingleTickerProviderStateMixin
               )
             ),
           ),
-        )
+        ),
       )
     );
   }
