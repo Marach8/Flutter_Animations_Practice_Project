@@ -26,7 +26,8 @@ class _Example1State extends State<Example1> with TickerProviderStateMixin{
       duration: const Duration(seconds: 30)
     )..repeat();
 
-    animation = Tween<double>(begin: 0.0, end: 2 * pi).animate(controller);
+    animation = Tween<double>(begin: 0.0, end: 2 * pi)
+      .animate(controller);
 
     sliderAnimation = Tween<Offset>(
       begin: const Offset(0, 0), end: const Offset(2, 0)
@@ -63,7 +64,8 @@ class _Example1State extends State<Example1> with TickerProviderStateMixin{
         child: AnimatedBuilder(
           animation: controller,
           builder: (_, __) => Transform(
-            //The alignment property indicates the point through which the axis of rotation passes through
+            //The alignment property indicates the point 
+            //through which the axis of rotation passes through
             alignment: Alignment.center,
             transform: Matrix4.identity()..rotateY(animation.value),
             child: Container(
